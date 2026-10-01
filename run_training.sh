@@ -1,10 +1,12 @@
 #!/usr/bin/env bash
+# Copyright 2026 Juwon Hwang, Hanyang University
+# Licensed under the Apache License, Version 2.0 (see LICENSE-RLCC).
+
 # Example single-GPU launch commands. Pick the codebase that matches the config:
 #   configs/rl/...    -> training-rl/   (RLVR, RLCR -- no curriculum loading)
 #   configs/rlcc/...  -> training-rlcc/ (RLCC, ascending, K-sweep, difficulty-signal, etc.
 #                        -- requires rlcc_preordered_dataset_path support)
-# Running an rlcc/ config via training-rl/ will NOT error, but will silently train
-# without curriculum ordering (see E06 in the paper/issue history).
+# Always match the config directory to its paired codebase.
 
 set -euo pipefail
 CONFIG="$1"            # e.g. configs/rl/E01-rlvr-1.7B-bigmath.yaml

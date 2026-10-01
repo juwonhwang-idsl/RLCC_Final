@@ -2,9 +2,8 @@
 # Companion baseline to RLCR-5000-lora.yaml -- same model/data/LoRA/hyperparameters, but reward
 # is plain format+accuracy only (no brier/confidence terms), matching how RLVR configs are derived
 # from their RLCR counterparts elsewhere (e.g. Qwen-1.7B/math/RLVR-5000-ng32.yaml vs RLCR-5000-ng32.yaml).
-# max_steps left at -1 (auto, one full epoch over 5000 examples) since this is a clean single-GPU
-# run from scratch -- RLCR-5000-lora.yaml's max_steps=2188 was a one-off fix for a GPU-count-switch
-# mid-training bug, not the "correct" step count for a fresh 1-GPU one-epoch run.
+# max_steps left at -1 (auto, one full epoch over 5000 examples) for this clean single-GPU
+# run from scratch.
 
 # Model arguments
 model_name_or_path: microsoft/Phi-4-mini-instruct

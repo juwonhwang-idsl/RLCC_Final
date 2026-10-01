@@ -1,4 +1,7 @@
 #!/usr/bin/env python
+# Copyright 2026 Juwon Hwang, Hanyang University
+# Licensed under the Apache License, Version 2.0 (see LICENSE-RLCC).
+
 """Build a fully confidence-sorted (descending) RLCC training dataset.
 
 Unlike build_rlcc_dataset.py (which splits into a

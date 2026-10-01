@@ -1,5 +1,8 @@
 #!/usr/bin/env python
-"""Build the RLCC (grouped, repeated-curriculum) RLAA training dataset.
+# Copyright 2026 Juwon Hwang, Hanyang University
+# Licensed under the Apache License, Version 2.0 (see LICENSE-RLCC).
+
+"""Build the RLCC (grouped, repeated-curriculum) training dataset.
 
 RLCC = split into N groups, sort each group by descending confidence
 (--ascending flips this to build the hard-first anti-curriculum ablation

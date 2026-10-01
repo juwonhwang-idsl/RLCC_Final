@@ -1,4 +1,7 @@
 #!/usr/bin/env python
+# Copyright 2026 Juwon Hwang, Hanyang University
+# Licensed under the Apache License, Version 2.0 (see LICENSE-RLCC).
+
 """Build the RLCC block-shuffle control ordering (Reviewer 2 W2).
 
 Takes an already-built RLCC curriculum dataset (e.g. the default K=3

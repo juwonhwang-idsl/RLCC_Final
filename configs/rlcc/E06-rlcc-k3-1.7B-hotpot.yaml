@@ -1,16 +1,5 @@
-# RLCC run: hotpot, REAL FIX -- the originally-published Hotpot RLCC checkpoint was trained via
-# RLCR-original's rl_runner.py, which silently ignored rlcc_preordered_dataset_path because that
-# codebase never had RLAA/curriculum-loading support ported in (confirmed via code inspection +
-# Spearman correlation between curriculum order and per-step reward ~= 0, statistically
-# indistinguishable from random). This config launches via RLCC/rl_runner.py instead, which does
-# implement it.
-#
-# This exact config was actually executed (run_name "...-n3-seed43-fixed", trained 2026-09-15,
-# log confirms "RLAA: loading preordered train dataset..." fired correctly) -- it is not a
-# hypothetical replacement. Held-out metrics: acc 0.516, ECE 0.205, PCE 0.171, Brier 0.221,
-# AUROC 0.793 (see configs/eval_configs/E06-rlcc-k3-1.7B-hotpot-heldout.json). This checkpoint
-# also doubles as R03's hotpot-rlcc seed43 reproduction run (same seed, same run).
-#
+# RLCC run: hotpot. Launch via training-rlcc/rl_runner.py (requires curriculum-loading support).
+# This checkpoint also doubles as R03's hotpot-rlcc seed43 reproduction run (same seed, same run).
 # Curriculum data is unchanged/still correct (built from data/RLCR-qwen3-1.7B-hotpot5000-ng16-longcomp
 # evaluated on its own training set, descending within 3 shuffled groups) -- only the training
 # script actually consuming it is fixed. All hyperparameters otherwise identical to the paper's

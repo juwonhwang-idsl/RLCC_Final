@@ -6,8 +6,7 @@
 # seed=0, num_groups=3, into persist/rlcc-llama32-3b-bigmathdigits5000-n3/combined).
 #
 # Training weights start from base Instruct, NOT from the RLCR checkpoint -- warm-starting from
-# RLCR would confound any RLCC effect with "extra gradient steps on top of an already-trained
-# model," exactly the bug found and fixed for Phi-4-mini's RLCC runs earlier this session.
+# RLCR would confound any RLCC effect with extra gradient steps on top of an already-trained model.
 #
 # shuffle_dataset explicitly set to false: GRPOConfig defaults this to True, and the trainer's
 # RepeatSampler runs torch.randperm on top of the pre-sorted dataset otherwise, erasing the

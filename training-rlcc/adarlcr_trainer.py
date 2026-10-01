@@ -1,3 +1,6 @@
+# Copyright 2026 Juwon Hwang, Hanyang University
+# Licensed under the Apache License, Version 2.0 (see LICENSE-RLCC).
+
 """AdaRFT-style difficulty sampler + RLCR reward on top of the existing GRPO CustomTrainer.
 
 Nothing in GRPO_Trainer.py / reward_fns.py is modified. This file only adds:

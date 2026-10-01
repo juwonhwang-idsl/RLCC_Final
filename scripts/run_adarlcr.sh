@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
+# Copyright 2026 Juwon Hwang, Hanyang University
+# Licensed under the Apache License, Version 2.0 (see LICENSE-RLCC).
+
 # R05 (AdaRFT difficulty sampler + RLCR reward, Qwen3-1.7B).
 #
 # Adapted from the A100 original: that version launched via

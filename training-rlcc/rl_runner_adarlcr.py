@@ -1,3 +1,6 @@
+# Copyright 2026 Juwon Hwang, Hanyang University
+# Licensed under the Apache License, Version 2.0 (see LICENSE-RLCC).
+
 """RLCR reward + AdaRFT difficulty sampler on the existing GRPO trainer (Qwen3-1.7B).
 
 Run through scripts/run_adarlcr.sh. Defaults follow the request: 5,000 prompts, 1 epoch,

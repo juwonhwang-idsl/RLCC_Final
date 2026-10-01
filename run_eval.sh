@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
+# Copyright 2026 Juwon Hwang, Hanyang University
+# Licensed under the Apache License, Version 2.0 (see LICENSE-RLCC).
+
 # Run an eval config (held-out or OOD) with the shared evaluation/ codebase.
 # (Both training-rl/ and training-rlcc/ checkpoints are evaluated the same way --
 # evaluation.py does not depend on which codebase trained the model.)
