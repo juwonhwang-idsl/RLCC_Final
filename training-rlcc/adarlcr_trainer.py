@@ -1,5 +1,5 @@
 # Copyright 2026 Juwon Hwang, Hanyang University
-# Licensed under the Apache License, Version 2.0 (see LICENSE-RLCC).
+# Licensed under the ISC License (see LICENSE-RLCC).
 
 """AdaRFT-style difficulty sampler + RLCR reward on top of the existing GRPO CustomTrainer.
 

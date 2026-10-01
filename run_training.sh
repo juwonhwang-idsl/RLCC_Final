@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Copyright 2026 Juwon Hwang, Hanyang University
-# Licensed under the Apache License, Version 2.0 (see LICENSE-RLCC).
+# Licensed under the ISC License (see LICENSE-RLCC).
 
 # Example single-GPU launch commands. Pick the codebase that matches the config:
 #   configs/rl/...    -> training-rl/   (RLVR, RLCR -- no curriculum loading)

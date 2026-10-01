@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # Copyright 2026 Juwon Hwang, Hanyang University
-# Licensed under the Apache License, Version 2.0 (see LICENSE-RLCC).
+# Licensed under the ISC License (see LICENSE-RLCC).
 
 """Build the RLCC block-shuffle control ordering (Reviewer 2 W2).
 

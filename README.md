@@ -70,7 +70,7 @@ bash run_eval.sh configs/eval_configs/E01-E02-E03-A01-5models-1.7B-bigmath-heldo
 This repository mixes two licenses at the file level:
 
 - **`LICENSE` (MIT)**: code carried over from, or modified from, [RLCR](https://github.com/damanimehul/RLCR) (Damani et al., 2026). This covers `training-rl/`, `evaluation/`, and also `GRPO_Trainer.py`/`reward_fns.py`/`rl_runner.py`/`arguments.py`/`trainer_utils.py`/`system_prompts.py`/`dataset_processing.py` inside `training-rlcc/` -- these add curriculum loading on top of RLCR's code but are still derivatives of it.
-- **`LICENSE-RLCC` (Apache 2.0, Copyright Juwon Hwang)**: files written entirely from scratch, with nothing carried over from RLCR -- `training-rlcc/adarlcr_trainer.py`, `training-rlcc/rl_runner_adarlcr.py`, `scripts/build_rlcc_dataset.py`, `scripts/build_rlcc_single_sweep.py`, `scripts/build_rlcc_block_shuffle_control.py`, `run_training.sh`, `run_eval.sh`, `scripts/run_adarlcr.sh`. Each of these files carries its own license header at the top.
+- **`LICENSE-RLCC` (ISC License, Copyright Juwon Hwang)**: files written entirely from scratch, with nothing carried over from RLCR -- `training-rlcc/adarlcr_trainer.py`, `training-rlcc/rl_runner_adarlcr.py`, `scripts/build_rlcc_dataset.py`, `scripts/build_rlcc_single_sweep.py`, `scripts/build_rlcc_block_shuffle_control.py`, `run_training.sh`, `run_eval.sh`, `scripts/run_adarlcr.sh`. Each of these files carries its own license header at the top.
 
 Config files (`configs/`) are treated as MIT.
 
@@ -143,7 +143,7 @@ bash run_eval.sh configs/eval_configs/E01-E02-E03-A01-5models-1.7B-bigmath-heldo
 이 저장소는 파일 단위로 두 라이센스가 섞여 있습니다:
 
 - **`LICENSE` (MIT)**: [RLCR](https://github.com/damanimehul/RLCR) (Damani et al., 2026)에서 그대로 가져왔거나 그걸 기반으로 수정한 코드. `training-rl/`, `evaluation/`, 그리고 `training-rlcc/` 안의 `GRPO_Trainer.py`/`reward_fns.py`/`rl_runner.py`/`arguments.py`/`trainer_utils.py`/`system_prompts.py`/`dataset_processing.py`도 RLCR 파생물이라 여기 포함됩니다 (curriculum 로딩 등 기능을 추가했지만 원본 구조를 그대로 이어받았습니다).
-- **`LICENSE-RLCC` (Apache 2.0, Copyright Juwon Hwang)**: RLCR 코드를 전혀 가져오지 않고 완전히 새로 작성한 파일만 — `training-rlcc/adarlcr_trainer.py`, `training-rlcc/rl_runner_adarlcr.py`, `scripts/build_rlcc_dataset.py`, `scripts/build_rlcc_single_sweep.py`, `scripts/build_rlcc_block_shuffle_control.py`, `run_training.sh`, `run_eval.sh`, `scripts/run_adarlcr.sh`. 각 파일 맨 위에 라이센스 표시가 있습니다.
+- **`LICENSE-RLCC` (ISC License, Copyright Juwon Hwang)**: RLCR 코드를 전혀 가져오지 않고 완전히 새로 작성한 파일만 — `training-rlcc/adarlcr_trainer.py`, `training-rlcc/rl_runner_adarlcr.py`, `scripts/build_rlcc_dataset.py`, `scripts/build_rlcc_single_sweep.py`, `scripts/build_rlcc_block_shuffle_control.py`, `run_training.sh`, `run_eval.sh`, `scripts/run_adarlcr.sh`. 각 파일 맨 위에 라이센스 표시가 있습니다.
 
 Config(`configs/`) 파일들은 모두 MIT 쪽으로 취급합니다.
 
