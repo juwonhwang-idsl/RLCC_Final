@@ -1,6 +1,6 @@
 # RLCC: Reinforcement Learning with Confidence Curriculum
 
-📄 **Paper** (Coming Soon) | 🤗 **Dataset**: [**Big-Math-digits**](https://huggingface.co/datasets/mehuldamani/big-math-digits) / [**HotpotQA-Modified**](https://huggingface.co/datasets/mehuldamani/hotpot_qa)
+📄 **Paper** (Coming Soon) | 🤗 [**Dataset**](https://huggingface.co/collections/juwon1105/rlcc-datasets-6abea501e9caf49f8651d0c2)
 
 [English](#english) | [한국어](#한국어)
 
