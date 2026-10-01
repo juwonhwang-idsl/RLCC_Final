@@ -1,5 +1,7 @@
 # RLCC: Reinforcement Learning with Confidence Curriculum
 
+📄 **Paper** (Coming Soon) | 🤗 [**Checkpoints & Datasets**](https://huggingface.co/juwon1105)
+
 [English](#english) | [한국어](#한국어)
 
 ---
