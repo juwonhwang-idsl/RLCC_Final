@@ -1,4 +1,4 @@
-name: rl
+name: rlcc
 channels:
   - conda-forge
 dependencies:
