@@ -45,7 +45,7 @@ Configs are named after the paper result they produce:
 | `A01`-`A05` | RLCC-Ascending (RLCC-A) ablation, one per model (Table 5, Appendix E) |
 | `D01`-`D02` | Difficulty-signal ablation: solve-rate / answer-NLL vs. confidence (Table 6) |
 | `K01`-`K04` | Restart-count sweep, K in {1,2,4,5} (K=3 is E03) (Table 7) |
-| `R01`-`R07` | Rebuttal-only experiments (not in the submitted paper) |
+| `R01`-`R07` | Experiments added during rebuttal (to be incorporated into the paper later) |
 
 ### Setup
 
@@ -118,7 +118,7 @@ results/           주요 결과 수치 (accuracy/ECE/PCE/Brier/AUROC). 모델�
 | `A01`-`A05` | RLCC-Ascending (RLCC-A) ablation, 모델별 1개 (Table 5, Appendix E) |
 | `D01`-`D02` | Difficulty-signal ablation: solve-rate / answer-NLL vs. confidence (Table 6) |
 | `K01`-`K04` | Restart 횟수 스윕, K ∈ {1,2,4,5} (K=3는 E03) (Table 7) |
-| `R01`-`R07` | Rebuttal 전용 실험 (제출된 논문에는 없음) |
+| `R01`-`R07` | Rebuttal에서 추가된 실험 (추후 논문에 반영 예정) |
 
 ### 설치
 
