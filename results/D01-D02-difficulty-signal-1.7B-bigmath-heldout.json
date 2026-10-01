@@ -1,0 +1,31 @@
+{
+  "note": "Transcribed from paper Table 6. Curriculum/restart structure (K=3, descending) held fixed; only the difficulty signal varies.",
+  "None (RLCR, E02)": {
+    "acc": 0.554,
+    "ece": 0.092,
+    "pce": 0.09,
+    "brier": 0.202,
+    "auroc": 0.761
+  },
+  "Solve rate (D01)": {
+    "acc": 0.558,
+    "ece": 0.044,
+    "pce": 0.043,
+    "brier": 0.197,
+    "auroc": 0.751
+  },
+  "Answer NLL (D02)": {
+    "acc": 0.576,
+    "ece": 0.108,
+    "pce": 0.102,
+    "brier": 0.216,
+    "auroc": 0.716
+  },
+  "Confidence (E03)": {
+    "acc": 0.587,
+    "ece": 0.051,
+    "pce": 0.04,
+    "brier": 0.19,
+    "auroc": 0.762
+  }
+}

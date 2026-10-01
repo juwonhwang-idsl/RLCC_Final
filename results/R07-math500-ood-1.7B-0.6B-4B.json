@@ -1,0 +1,73 @@
+{
+  "note": "Local metrics.json, actually run. OOD scale check on MATH500 (and AIME2024/2025, AMC23/24) across model sizes. 1.7B bundle also includes Base/Instruct/RLVR for reference.",
+  "1.7B": {
+    "Base-cap1024": {
+      "acc": 0.234,
+      "ece": 0.7197,
+      "brier": 0.7172,
+      "auroc": 0.5173
+    },
+    "Instruct-cap1024": {
+      "acc": 0.424,
+      "ece": 0.5428,
+      "brier": 0.5348,
+      "auroc": 0.5446
+    },
+    "RLVR": {
+      "acc": 0.524,
+      "ece": 0.4306,
+      "brier": 0.4244,
+      "auroc": 0.5791
+    },
+    "RLCR": {
+      "acc": 0.514,
+      "ece": 0.163,
+      "brier": 0.2214,
+      "auroc": 0.7684
+    },
+    "RLCC-n3 (E03)": {
+      "acc": 0.538,
+      "ece": 0.127,
+      "brier": 0.2075,
+      "auroc": 0.763
+    },
+    "RLCC-ascending-n3 (A01)": {
+      "acc": 0.528,
+      "ece": 0.103,
+      "brier": 0.2002,
+      "auroc": 0.7637
+    }
+  },
+  "0.6B": {
+    "RLCR": {
+      "acc": 0.31,
+      "ece": 0.0935,
+      "pce": 0.015,
+      "brier": 0.2202,
+      "auroc": 0.5239
+    },
+    "RLCC": {
+      "acc": 0.366,
+      "ece": 0.0556,
+      "pce": 0.0556,
+      "brier": 0.2183,
+      "auroc": 0.6302
+    }
+  },
+  "4B": {
+    "RLCR": {
+      "acc": 0.638,
+      "ece": 0.2776,
+      "pce": 0.2776,
+      "brier": 0.2792,
+      "auroc": 0.6916
+    },
+    "RLCC": {
+      "acc": 0.678,
+      "ece": 0.1686,
+      "pce": 0.1686,
+      "brier": 0.2375,
+      "auroc": 0.6083
+    }
+  }
+}

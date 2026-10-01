@@ -1,0 +1,105 @@
+{
+  "note": "Local metrics.json, actually run. R07 extension beyond MATH500: AIME2024/2025, AMC23/24, n=8 sampling.",
+  "0.6B": {
+    "RLCR AIME2024": {
+      "acc": 0.0,
+      "ece": 0.22,
+      "brier": 0.0592,
+      "auroc": null
+    },
+    "RLCC AIME2024": {
+      "acc": 0.0,
+      "ece": 0.3495,
+      "brier": 0.1423,
+      "auroc": null
+    },
+    "RLCR AIME2025": {
+      "acc": 0.0042,
+      "ece": 0.2269,
+      "brier": 0.0741,
+      "auroc": 0.59
+    },
+    "RLCC AIME2025": {
+      "acc": 0.0125,
+      "ece": 0.3761,
+      "brier": 0.168,
+      "auroc": 0.7215
+    },
+    "RLCR AMC23": {
+      "acc": 0.1375,
+      "ece": 0.116,
+      "brier": 0.1463,
+      "auroc": 0.4259
+    },
+    "RLCC AMC23": {
+      "acc": 0.2281,
+      "ece": 0.1692,
+      "brier": 0.2066,
+      "auroc": 0.5766
+    },
+    "RLCR AMC24": {
+      "acc": 0.075,
+      "ece": 0.1654,
+      "brier": 0.1047,
+      "auroc": 0.5819
+    },
+    "RLCC AMC24": {
+      "acc": 0.0861,
+      "ece": 0.2973,
+      "pce": 0.2963,
+      "brier": 0.1743,
+      "auroc": 0.6406
+    }
+  },
+  "4B": {
+    "RLCR AIME2024": {
+      "acc": 0.1292,
+      "ece": 0.6342,
+      "brier": 0.5105,
+      "auroc": 0.7083
+    },
+    "RLCC AIME2024": {
+      "acc": 0.1833,
+      "ece": 0.5905,
+      "brier": 0.4946,
+      "auroc": 0.6206
+    },
+    "RLCR AIME2025": {
+      "acc": 0.1333,
+      "ece": 0.6235,
+      "brier": 0.4943,
+      "auroc": 0.7924
+    },
+    "RLCC AIME2025": {
+      "acc": 0.2042,
+      "ece": 0.5676,
+      "brier": 0.4744,
+      "auroc": 0.6797
+    },
+    "RLCR AMC23": {
+      "acc": 0.6219,
+      "ece": 0.2067,
+      "brier": 0.2446,
+      "auroc": 0.7086
+    },
+    "RLCC AMC23": {
+      "acc": 0.6219,
+      "ece": 0.1941,
+      "brier": 0.2578,
+      "auroc": 0.652
+    },
+    "RLCR AMC24": {
+      "acc": 0.4361,
+      "ece": 0.3744,
+      "brier": 0.3573,
+      "auroc": 0.6991
+    },
+    "RLCC AMC24": {
+      "acc": 0.5583,
+      "ece": 0.2449,
+      "brier": 0.288,
+      "auroc": 0.6697
+    }
+  },
+  "note2": "AIME2024 AUROC is undefined (null) for 0.6B: accuracy was 0 across all samples (no correct answers to rank against)."
+}

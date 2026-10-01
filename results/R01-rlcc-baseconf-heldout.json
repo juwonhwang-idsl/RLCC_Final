@@ -1,0 +1,10 @@
+{
+  "note": "Local metrics.json, actually run. Base-confidence (post-hoc, before RL training) as the curriculum signal, instead of RLCR's calibrated confidence.",
+  "RLCC-base-RLVR-posthoc-seed43 (R01)": {
+    "acc": 0.569,
+    "ece": 0.0666,
+    "pce": 0.0666,
+    "brier": 0.1978,
+    "auroc": 0.7625
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "note": "Transcribed from paper Table 4. Both trained with LoRA.",
+  "Base": {
+    "acc": 0.384,
+    "ece": 0.572,
+    "pce": 0.572,
+    "brier": 0.563,
+    "auroc": 0.58
+  },
+  "RLVR (E13)": {
+    "acc": 0.464,
+    "ece": 0.521,
+    "pce": 0.521,
+    "brier": 0.522,
+    "auroc": 0.472
+  },
+  "RLCR (E14)": {
+    "acc": 0.414,
+    "ece": 0.439,
+    "pce": 0.439,
+    "brier": 0.427,
+    "auroc": 0.652
+  },
+  "RLCC (E15)": {
+    "acc": 0.447,
+    "ece": 0.395,
+    "pce": 0.394,
+    "brier": 0.326,
+    "auroc": 0.723
+  }
+}

@@ -24,6 +24,10 @@ configs/
   rl/              RLVR/RLCR 학습 config -> training-rl/ 로 실행
   rlcc/            RLCC 학습 config -> training-rlcc/ 로 실행
   eval_configs/     논문의 모든 결과에 대응하는 평가 config
+results/           주요 결과 수치 (accuracy/ECE/PCE/Brier/AUROC). 모델이 생성한 원문 텍스트는
+                   포함하지 않고, 논문 표 숫자만 담았습니다. E/A/D/K 항목은 논문 Table에서 그대로
+                   옮겼고, R01/R03/R04/R06/R07은 실제로 실행된 로컬 결과입니다. R05(AdaRFT+RLCR)는
+                   A100 서버에서만 실행되어 아직 포함되지 않았습니다.
 ```
 
 `configs/rl/`과 `configs/rlcc/`는 의도적으로 서로 다른 코드베이스로 실행하도록 분리되어 있습니다. `training-rl/`은 curriculum 로딩 기능이 아예 없기 때문에, `rlcc/` config를 `training-rl/`로 돌려도 에러 없이 그냥 curriculum이 조용히 무시된 채 RLCR처럼 학습됩니다. 항상 config 디렉토리와 짝이 맞는 학습 디렉토리를 사용하세요 (`run_training.sh`가 이를 자동으로 맞춰줍니다).
@@ -88,6 +92,10 @@ configs/
   rl/              RLVR/RLCR training configs -> run with training-rl/
   rlcc/            RLCC training configs -> run with training-rlcc/
   eval_configs/     Evaluation configs for every result in the paper
+results/           Main result numbers (accuracy/ECE/PCE/Brier/AUROC). No raw generations,
+                   just the paper's table numbers. E/A/D/K entries are transcribed directly
+                   from the paper's tables; R01/R03/R04/R06/R07 are from local eval runs.
+                   R05 (AdaRFT+RLCR) ran only on a separate A100 server and isn't included yet.
 ```
 
 `configs/rl/` and `configs/rlcc/` are run with different codebases on purpose:

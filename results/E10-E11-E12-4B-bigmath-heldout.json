@@ -1,0 +1,31 @@
+{
+  "note": "Transcribed from paper Table 3.",
+  "Base": {
+    "acc": 0.531,
+    "ece": 0.367,
+    "pce": 0.366,
+    "brier": 0.352,
+    "auroc": 0.74
+  },
+  "RLVR (E10)": {
+    "acc": 0.702,
+    "ece": 0.238,
+    "pce": 0.237,
+    "brier": 0.258,
+    "auroc": 0.581
+  },
+  "RLCR (E11)": {
+    "acc": 0.681,
+    "ece": 0.213,
+    "pce": 0.212,
+    "brier": 0.234,
+    "auroc": 0.696
+  },
+  "RLCC (E12)": {
+    "acc": 0.704,
+    "ece": 0.105,
+    "pce": 0.103,
+    "brier": 0.202,
+    "auroc": 0.661
+  }
+}

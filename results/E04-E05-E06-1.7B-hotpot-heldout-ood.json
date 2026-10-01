@@ -1,0 +1,67 @@
+{
+  "note": "Transcribed from paper Table 2. heldout = HotpotQA-Modified held-out; ood = average over MuSiQue/2WikiMultiHopQA/WikiHop, judged by Qwen2.5-7B-Instruct.",
+  "Base": {
+    "heldout": {
+      "acc": 0.501,
+      "ece": 0.299,
+      "pce": 0.293,
+      "brier": 0.29,
+      "auroc": 0.728
+    },
+    "ood": {
+      "acc": 0.515,
+      "ece": 0.403,
+      "pce": 0.401,
+      "brier": 0.391,
+      "auroc": 0.612
+    }
+  },
+  "RLVR (E04)": {
+    "heldout": {
+      "acc": 0.478,
+      "ece": 0.52,
+      "pce": 0.514,
+      "brier": 0.519,
+      "auroc": 0.5
+    },
+    "ood": {
+      "acc": 0.339,
+      "ece": 0.646,
+      "pce": 0.645,
+      "brier": 0.646,
+      "auroc": 0.509
+    }
+  },
+  "RLCR (E05)": {
+    "heldout": {
+      "acc": 0.512,
+      "ece": 0.262,
+      "pce": 0.251,
+      "brier": 0.253,
+      "auroc": 0.78
+    },
+    "ood": {
+      "acc": 0.524,
+      "ece": 0.374,
+      "pce": 0.364,
+      "brier": 0.359,
+      "auroc": 0.65
+    }
+  },
+  "RLCC (E06)": {
+    "heldout": {
+      "acc": 0.515,
+      "ece": 0.236,
+      "pce": 0.217,
+      "brier": 0.241,
+      "auroc": 0.785
+    },
+    "ood": {
+      "acc": 0.532,
+      "ece": 0.35,
+      "pce": 0.337,
+      "brier": 0.343,
+      "auroc": 0.632
+    }
+  }
+}

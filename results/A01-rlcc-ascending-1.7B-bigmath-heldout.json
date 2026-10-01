@@ -1,0 +1,24 @@
+{
+  "note": "Transcribed from paper Table 5 (K=3 fixed, direction varied). RLCC-A = RLCC-Ascending.",
+  "Random (RLCR, E02)": {
+    "acc": 0.554,
+    "ece": 0.092,
+    "pce": 0.09,
+    "brier": 0.202,
+    "auroc": 0.761
+  },
+  "RLCC-A (A01)": {
+    "acc": 0.565,
+    "ece": 0.019,
+    "pce": 0.014,
+    "brier": 0.199,
+    "auroc": 0.743
+  },
+  "RLCC (E03)": {
+    "acc": 0.587,
+    "ece": 0.051,
+    "pce": 0.04,
+    "brier": 0.19,
+    "auroc": 0.762
+  }
+}

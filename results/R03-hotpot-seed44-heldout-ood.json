@@ -1,0 +1,59 @@
+{
+  "note": "Local metrics.json, actually run. R03 = 3-seed reproduction, seed44 arm; RLCR+RLCC on Hotpot, held-out + full OOD suite (2wiki/musique/wikihop).",
+  "RLCR-seed44 heldout": {
+    "acc": 0.517,
+    "ece": 0.209,
+    "pce": 0.1728,
+    "brier": 0.2243,
+    "auroc": 0.7886
+  },
+  "RLCC-seed44 heldout": {
+    "acc": 0.514,
+    "ece": 0.1969,
+    "pce": 0.1669,
+    "brier": 0.2121,
+    "auroc": 0.803
+  },
+  "RLCR-seed44 2WikiMultiHopQA": {
+    "acc": 0.698,
+    "ece": 0.1911,
+    "pce": 0.1731,
+    "brier": 0.2078,
+    "auroc": 0.6984
+  },
+  "RLCC-seed44 2WikiMultiHopQA": {
+    "acc": 0.668,
+    "ece": 0.2206,
+    "pce": 0.2102,
+    "brier": 0.221,
+    "auroc": 0.6887
+  },
+  "RLCR-seed44 MuSiQue": {
+    "acc": 0.37,
+    "ece": 0.3467,
+    "pce": 0.2927,
+    "brier": 0.3565,
+    "auroc": 0.6396
+  },
+  "RLCC-seed44 MuSiQue": {
+    "acc": 0.388,
+    "ece": 0.3362,
+    "pce": 0.2682,
+    "brier": 0.3486,
+    "auroc": 0.643
+  },
+  "RLCR-seed44 WikiHop": {
+    "acc": 0.484,
+    "ece": 0.4436,
+    "pce": 0.4436,
+    "brier": 0.4506,
+    "auroc": 0.548
+  },
+  "RLCC-seed44 WikiHop": {
+    "acc": 0.498,
+    "ece": 0.437,
+    "pce": 0.433,
+    "brier": 0.445,
+    "auroc": 0.5219
+  }
+}

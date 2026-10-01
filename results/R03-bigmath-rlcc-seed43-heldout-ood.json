@@ -1,0 +1,45 @@
+{
+  "note": "Local metrics.json, actually run. R03 = 3-seed reproduction; this is the seed43 arm of the BigMath RLCC curve, distinct checkpoint from E03 (verified via SHA256) bonus-evaluated on held-out + full OOD suite.",
+  "RLCC-seed43 heldout": {
+    "acc": 0.561,
+    "ece": 0.0678,
+    "pce": 0.0542,
+    "brier": 0.2017,
+    "auroc": 0.7204
+  },
+  "RLCC-seed43 MATH500": {
+    "acc": 0.484,
+    "ece": 0.1414,
+    "pce": 0.1414,
+    "brier": 0.2315,
+    "auroc": 0.7068
+  },
+  "RLCC-seed43 AMC23 (n8)": {
+    "acc": 0.3313,
+    "ece": 0.2056,
+    "pce": 0.2056,
+    "brier": 0.239,
+    "auroc": 0.7038
+  },
+  "RLCC-seed43 AMC24 (n8)": {
+    "acc": 0.2389,
+    "ece": 0.2803,
+    "pce": 0.2775,
+    "brier": 0.225,
+    "auroc": 0.7875
+  },
+  "RLCC-seed43 AIME2024 (n8)": {
+    "acc": 0.0792,
+    "ece": 0.3117,
+    "pce": 0.3117,
+    "brier": 0.1778,
+    "auroc": 0.81
+  },
+  "RLCC-seed43 AIME2025 (n8)": {
+    "acc": 0.1,
+    "ece": 0.3504,
+    "pce": 0.3504,
+    "brier": 0.1992,
+    "auroc": 0.875
+  }
+}

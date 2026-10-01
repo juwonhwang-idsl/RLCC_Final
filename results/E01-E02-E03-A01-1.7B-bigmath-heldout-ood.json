@@ -1,0 +1,67 @@
+{
+  "note": "Transcribed from paper Table 1. heldout = Big-Math in-distribution held-out; ood = average over MATH500/AMC23/AMC24/AIME24/AIME25.",
+  "Base": {
+    "heldout": {
+      "acc": 0.437,
+      "ece": 0.5,
+      "pce": 0.461,
+      "brier": 0.489,
+      "auroc": 0.583
+    },
+    "ood": {
+      "acc": 0.159,
+      "ece": 0.764,
+      "pce": 0.764,
+      "brier": 0.742,
+      "auroc": 0.566
+    }
+  },
+  "RLVR": {
+    "heldout": {
+      "acc": 0.567,
+      "ece": 0.378,
+      "pce": 0.352,
+      "brier": 0.379,
+      "auroc": 0.583
+    },
+    "ood": {
+      "acc": 0.29,
+      "ece": 0.525,
+      "pce": 0.501,
+      "brier": 0.495,
+      "auroc": 0.597
+    }
+  },
+  "RLCR (E02)": {
+    "heldout": {
+      "acc": 0.554,
+      "ece": 0.092,
+      "pce": 0.09,
+      "brier": 0.202,
+      "auroc": 0.761
+    },
+    "ood": {
+      "acc": 0.24,
+      "ece": 0.29,
+      "pce": 0.287,
+      "brier": 0.228,
+      "auroc": 0.807
+    }
+  },
+  "RLCC (E03)": {
+    "heldout": {
+      "acc": 0.587,
+      "ece": 0.051,
+      "pce": 0.04,
+      "brier": 0.19,
+      "auroc": 0.762
+    },
+    "ood": {
+      "acc": 0.288,
+      "ece": 0.171,
+      "pce": 0.167,
+      "brier": 0.175,
+      "auroc": 0.796
+    }
+  }
+}

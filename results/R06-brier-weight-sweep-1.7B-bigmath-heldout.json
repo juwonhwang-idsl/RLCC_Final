@@ -1,0 +1,24 @@
+{
+  "note": "Local metrics.json, actually run. Brier-reward-weight sweep (lambda_b); 0.5 is the paper default (= E02's RLCR).",
+  "Brier weight 0.25 (R06)": {
+    "acc": 0.576,
+    "ece": 0.2731,
+    "pce": 0.2731,
+    "brier": 0.2948,
+    "auroc": 0.6244
+  },
+  "Brier weight 0.5 (E02)": {
+    "acc": 0.554,
+    "ece": 0.092,
+    "pce": 0.09,
+    "brier": 0.202,
+    "auroc": 0.761
+  },
+  "Brier weight 0.75 (R06)": {
+    "acc": 0.543,
+    "ece": 0.0647,
+    "pce": 0.0517,
+    "brier": 0.2057,
+    "auroc": 0.7335
+  }
+}

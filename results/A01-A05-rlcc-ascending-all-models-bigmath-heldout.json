@@ -1,0 +1,118 @@
+{
+  "note": "Transcribed from paper Table 11 (Appendix E).",
+  "Qwen3-0.6B": {
+    "RLCR (E08)": {
+      "acc": 0.288,
+      "ece": 0.062,
+      "pce": 0.012,
+      "brier": 0.213,
+      "auroc": 0.544
+    },
+    "RLCC (E09)": {
+      "acc": 0.367,
+      "ece": 0.042,
+      "pce": 0.042,
+      "brier": 0.221,
+      "auroc": 0.607
+    },
+    "RLCC-A (A02)": {
+      "acc": 0.362,
+      "ece": 0.038,
+      "pce": 0.027,
+      "brier": 0.207,
+      "auroc": 0.685
+    }
+  },
+  "Qwen3-1.7B": {
+    "RLCR (E02)": {
+      "acc": 0.554,
+      "ece": 0.092,
+      "pce": 0.09,
+      "brier": 0.202,
+      "auroc": 0.761
+    },
+    "RLCC (E03)": {
+      "acc": 0.587,
+      "ece": 0.051,
+      "pce": 0.04,
+      "brier": 0.19,
+      "auroc": 0.762
+    },
+    "RLCC-A (A01)": {
+      "acc": 0.565,
+      "ece": 0.019,
+      "pce": 0.014,
+      "brier": 0.199,
+      "auroc": 0.743
+    }
+  },
+  "Qwen3-4B": {
+    "RLCR (E11)": {
+      "acc": 0.681,
+      "ece": 0.213,
+      "pce": 0.212,
+      "brier": 0.234,
+      "auroc": 0.696
+    },
+    "RLCC (E12)": {
+      "acc": 0.704,
+      "ece": 0.105,
+      "pce": 0.103,
+      "brier": 0.202,
+      "auroc": 0.661
+    },
+    "RLCC-A (A03)": {
+      "acc": 0.702,
+      "ece": 0.189,
+      "pce": 0.189,
+      "brier": 0.229,
+      "auroc": 0.621
+    }
+  },
+  "Phi-4-mini": {
+    "RLCR (E14)": {
+      "acc": 0.414,
+      "ece": 0.439,
+      "pce": 0.439,
+      "brier": 0.427,
+      "auroc": 0.652
+    },
+    "RLCC (E15)": {
+      "acc": 0.447,
+      "ece": 0.395,
+      "pce": 0.394,
+      "brier": 0.326,
+      "auroc": 0.723
+    },
+    "RLCC-A (A04)": {
+      "acc": 0.437,
+      "ece": 0.347,
+      "pce": 0.344,
+      "brier": 0.34,
+      "auroc": 0.713
+    }
+  },
+  "Llama-3.2-3B": {
+    "RLCR (E17)": {
+      "acc": 0.287,
+      "ece": 0.185,
+      "pce": 0.171,
+      "brier": 0.242,
+      "auroc": 0.583
+    },
+    "RLCC (E18)": {
+      "acc": 0.313,
+      "ece": 0.163,
+      "pce": 0.156,
+      "brier": 0.243,
+      "auroc": 0.586
+    },
+    "RLCC-A (A05)": {
+      "acc": 0.293,
+      "ece": 0.192,
+      "pce": 0.183,
+      "brier": 0.247,
+      "auroc": 0.605
+    }
+  }
+}

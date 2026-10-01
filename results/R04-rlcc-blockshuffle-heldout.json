@@ -1,0 +1,10 @@
+{
+  "note": "Local metrics.json, actually run. Block-shuffle control: curriculum groups shuffled as blocks instead of per-example ordering, to isolate the effect of fine-grained confidence sorting.",
+  "RLCC-block-shuffle-control (R04)": {
+    "acc": 0.542,
+    "ece": 0.0761,
+    "pce": 0.0741,
+    "brier": 0.1862,
+    "auroc": 0.7923
+  }
+}

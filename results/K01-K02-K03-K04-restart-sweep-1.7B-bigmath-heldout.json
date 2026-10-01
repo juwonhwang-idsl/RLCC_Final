@@ -1,0 +1,38 @@
+{
+  "note": "Transcribed from paper Table 7. K=1 = no restart partitioning; K=3 (E03) is the paper's default.",
+  "K=1 (K01)": {
+    "acc": 0.564,
+    "ece": 0.096,
+    "pce": 0.088,
+    "brier": 0.206,
+    "auroc": 0.759
+  },
+  "K=2 (K02)": {
+    "acc": 0.565,
+    "ece": 0.049,
+    "pce": 0.043,
+    "brier": 0.188,
+    "auroc": 0.771
+  },
+  "K=3 (E03)": {
+    "acc": 0.587,
+    "ece": 0.051,
+    "pce": 0.04,
+    "brier": 0.19,
+    "auroc": 0.762
+  },
+  "K=4 (K03)": {
+    "acc": 0.557,
+    "ece": 0.093,
+    "pce": 0.092,
+    "brier": 0.209,
+    "auroc": 0.745
+  },
+  "K=5 (K04)": {
+    "acc": 0.528,
+    "ece": 0.082,
+    "pce": 0.08,
+    "brier": 0.202,
+    "auroc": 0.764
+  }
+}
