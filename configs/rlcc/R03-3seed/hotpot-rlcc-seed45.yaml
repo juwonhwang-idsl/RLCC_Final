@@ -1,12 +1,12 @@
 model_name_or_path: Qwen/Qwen3-1.7B
 run_name: "RLCC-qwen3-1.7B-hotpot5000-n3-seed45-confidence45-e2e"
-output_dir: /home/zr0rtv/RLCR/persist/RLCC-qwen3-1.7B-hotpot5000-n3-seed45-confidence45-e2e
+output_dir: persist/RLCC-qwen3-1.7B-hotpot5000-n3-seed45-confidence45-e2e
 model_revision: main
 torch_dtype: bfloat16
 attn_implementation: flash_attention_2
 
 dataset_name: mehuldamani/hotpot_qa
-rlcc_preordered_dataset_path: /home/zr0rtv/RLCR/persist/rlcc-hotpot-qwen3-1p7B-seed45-confidence45-n3/combined
+rlcc_preordered_dataset_path: persist/rlcc-hotpot-qwen3-1p7B-seed45-confidence45-n3/combined
 train_subset_size: 5000
 num_processes: 1
 

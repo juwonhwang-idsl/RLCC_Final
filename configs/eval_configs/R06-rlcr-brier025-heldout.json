@@ -9,7 +9,7 @@
   },
   {
     "name": "RLCR-brier025",
-    "model": "/home/zr0rtv/RLCR-original/data/RLCR-qwen3-1.7B-bigmathdigits5000-ng32-seed43-brier025/checkpoint-5000",
+    "model": "data/RLCR-qwen3-1.7B-bigmathdigits5000-ng32-seed43-brier025/checkpoint-5000",
     "check_fn": "confidence_verifier",
     "sys_prompt_name": "tabc",
     "vllm_task": [

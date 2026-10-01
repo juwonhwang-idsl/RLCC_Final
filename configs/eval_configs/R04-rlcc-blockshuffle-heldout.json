@@ -9,7 +9,7 @@
   },
   {
     "name": "bm-blockshuffle",
-    "model": "/home/zr0rtv/RLCR-original/persist/RLCC-qwen3-1.7B-bigmathdigits5000-n3-block-shuffle-control/checkpoint-5000",
+    "model": "persist/RLCC-qwen3-1.7B-bigmathdigits5000-n3-block-shuffle-control/checkpoint-5000",
     "check_fn": "confidence_verifier",
     "sys_prompt_name": "tabc",
     "vllm_task": [

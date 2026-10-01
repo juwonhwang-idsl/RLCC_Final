@@ -1,6 +1,6 @@
 model_name_or_path: Qwen/Qwen3-1.7B
 run_name: "RLCR-qwen3-1.7B-hotpot5000-seed44"
-output_dir: /home/zr0rtv/RLCR-original/data/RLCR-qwen3-1.7B-hotpot5000-seed44
+output_dir: data/RLCR-qwen3-1.7B-hotpot5000-seed44
 model_revision: main
 torch_dtype: bfloat16
 attn_implementation: flash_attention_2

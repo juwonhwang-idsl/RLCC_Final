@@ -15,7 +15,7 @@ attn_implementation: flash_attention_2
 
 # Data training arguments
 dataset_name: mehuldamani/hotpot_qa
-rlcc_preordered_dataset_path: /home/zr0rtv/RLCR-original/persist/rlcc-hotpot-qwen3-1p7B-ng16longcomp-n3/combined
+rlcc_preordered_dataset_path: persist/rlcc-hotpot-qwen3-1p7B-ng16longcomp-n3/combined
 train_subset_size: 5000
 num_processes: 1
 
