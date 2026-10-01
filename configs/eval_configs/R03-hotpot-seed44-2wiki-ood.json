@@ -1,0 +1,41 @@
+[
+  {
+    "dataset_name": "juwon1105/2wikimultihopqa_val500",
+    "hash_key": "problem",
+    "split": "test",
+    "store_name": "eval_outputs/R03-hotpot-seed44-2wiki-ood",
+    "gpu_memory_utilization": 0.6,
+    "max_model_len": 8192,
+    "log_path": "results/R03-hotpot-seed44-2wiki-ood"
+  },
+  {
+    "name": "RLCR-Qwen3-1.7B-Hotpot5000-seed44",
+    "model": "data/RLCR-qwen3-1.7B-hotpot5000-seed44/checkpoint-5000",
+    "check_fn": "llm_confidence_verifier",
+    "check_fn_args": {
+      "judge_model": "Qwen/Qwen2.5-7B-Instruct"
+    },
+    "sys_prompt_name": "tabc_long",
+    "max_tokens": 1280,
+    "n": 1,
+    "vllm_task": [
+      "confidence_at_end",
+      "ans_at_end"
+    ]
+  },
+  {
+    "name": "RLCC-Qwen3-1.7B-Hotpot5000-seed44",
+    "model": "persist/RLCC-qwen3-1.7B-hotpot5000-n3-seed44/checkpoint-5000",
+    "check_fn": "llm_confidence_verifier",
+    "check_fn_args": {
+      "judge_model": "Qwen/Qwen2.5-7B-Instruct"
+    },
+    "sys_prompt_name": "tabc_long",
+    "max_tokens": 1280,
+    "n": 1,
+    "vllm_task": [
+      "confidence_at_end",
+      "ans_at_end"
+    ]
+  }
+]

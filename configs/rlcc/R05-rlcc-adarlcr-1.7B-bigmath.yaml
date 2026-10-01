@@ -1,0 +1,58 @@
+# AdaRFT difficulty sampler + RLCR reward; launch with scripts/run_adarlcr.sh.
+# Trained via training-rlcc/rl_runner_adarlcr.py (not rl_runner.py) -- a different entry point
+# that does not use the rlcc_preordered_dataset_path curriculum mechanism at all; instead it
+# adaptively samples prompts every optimizer step by a fixed per-example difficulty score
+# (100*(1-llama8b_solve_rate)), tracking a moving target difficulty T. See adarlcr_trainer.py.
+model_name_or_path: Qwen/Qwen3-1.7B
+run_name: AdaRLCR-qwen3-1.7B-bigmathdigits5000-bs64-g32-seed43
+output_dir: persist/AdaRLCR-qwen3-1.7B-bigmathdigits5000-bs64-g32-seed43
+model_revision: main
+torch_dtype: bfloat16
+attn_implementation: flash_attention_2
+
+dataset_name: mehuldamani/big-math-digits
+train_subset_size: 5000
+num_processes: 1
+
+bf16: true
+beta: 0.0
+eval_strategy: "no"
+eval_on_start: false
+format_pattern: "tac"
+gradient_accumulation_steps: 256
+gradient_checkpointing: true
+gradient_checkpointing_kwargs:
+  use_reentrant: false
+hub_strategy: "end"
+learning_rate: 5e-06
+log_level: info
+logging_steps: 1
+logging_strategy: steps
+lr_scheduler_type: linear
+mask_truncated_completions: false
+max_prompt_length: 768
+max_completion_length: 1024
+max_steps: -1
+num_generations: 32
+num_iterations: 1
+num_train_epochs: 1
+optim: adamw_bnb_8bit
+overwrite_output_dir: false
+per_device_train_batch_size: 8
+push_to_hub: false
+report_to: []
+reward_funcs: ["rlcr"]
+reward_weights: [1.0]
+save_strategy: "steps"
+save_steps: 20
+save_total_limit: 20
+scale_rewards: false
+seed: 43
+shuffle_dataset: false
+sys_prompt_name: "tac"
+temperature: 0.7
+use_vllm: true
+vllm_device: auto
+vllm_gpu_memory_utilization: 0.5
+warmup_ratio: 0.20
+deepspeed: null

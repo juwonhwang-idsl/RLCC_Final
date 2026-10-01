@@ -1,0 +1,73 @@
+# RLCC run: Qwen3-0.6B, big-math-digits, single GPU.
+# Same recipe as RLCR-5000-ng32.yaml (the base checkpoint this branches from) except data order and
+# per_device_train_batch_size/gradient_accumulation_steps -- per_device_train_batch_size=4 (as used
+# to train the base ng32 checkpoint) OOM'd when reused for the RLVR-0.6B run on this GPU setup, so
+# this drops to per_device_train_batch_size=1 / gradient_accumulation_steps=64 instead, which keeps
+# the same total_train_batch_size=64 (2 prompts/step, matching the base run's own convention) with a
+# safer per-step memory footprint. vllm_gpu_memory_utilization also dropped 0.6->0.4 for the same
+# reason.
+#
+# RLCC = the 5000 train examples are shuffled, split into 3 equal groups, and each group is sorted
+# independently by descending confidence from the base RLCR-qwen3-0.6B-bigmathdigits5000-ng32
+# checkpoint (ties shuffled), then the 3 sorted groups are concatenated. See
+# scripts/build_rlcc_dataset.py (seed=0, num_groups=3, group sizes 1667/1666/1667) and
+# eval_outputs/qwen3-0p6B-bigmathdigits-ng32ckpt-train5000 for the confidence source.
+#
+# Comparison arm: RLCC-n1-from-ng32ckpt.yaml (same confidence source, no grouping -- one long
+# descending sweep instead of 3 repeated sweeps).
+
+# Model arguments
+model_name_or_path: data/RLCR-qwen3-0.6B-bigmathdigits5000-ng32
+run_name: "RLCC-qwen3-0.6B-bigmathdigits5000-n3-from-ng32ckpt"
+output_dir: persist/RLCC-qwen3-0.6B-bigmathdigits5000-n3-from-ng32ckpt
+model_revision: main
+torch_dtype: bfloat16
+attn_implementation: flash_attention_2
+
+# Data training arguments
+dataset_name: mehuldamani/big-math-digits
+rlcc_preordered_dataset_path: persist/rlcc-bigmathdigits-qwen3-0p6B-ng32ckpt-n3/combined
+train_subset_size: 5000
+num_processes: 1
+
+# GRPO trainer config
+bf16: true
+beta: 0.0
+eval_strategy: "no"
+eval_on_start: false
+format_pattern: "tabc"
+gradient_accumulation_steps: 64
+gradient_checkpointing: true
+gradient_checkpointing_kwargs:
+  use_reentrant: false
+hub_strategy: "end"
+learning_rate: 5e-06
+log_level: info
+logging_steps: 1
+logging_strategy: steps
+lr_scheduler_type: linear
+mask_truncated_completions: false
+max_prompt_length: 768
+max_completion_length: 1024
+max_steps: -1
+num_generations: 32
+num_iterations: 1
+num_train_epochs: 1
+overwrite_output_dir: true
+per_device_train_batch_size: 1
+push_to_hub: false
+report_to: []
+reward_funcs: ["format","accuracy","brier","mean_confidence","confidence_one_or_zero"]
+reward_weights: [0.5,0.5,0.5,0.00001,0.00001]
+save_strategy: "steps"
+save_steps: 100
+save_total_limit: 1
+scale_rewards: false
+seed: 43
+shuffle_dataset: false
+sys_prompt_name: "tabc"
+temperature: 0.7
+use_vllm: true
+vllm_device: auto
+vllm_gpu_memory_utilization: 0.4
+warmup_ratio: 0.20

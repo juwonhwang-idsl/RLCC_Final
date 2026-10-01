@@ -1,0 +1,66 @@
+# RLCC run: Qwen3-4B, math-only, confidence curriculum (3 groups, descending confidence within
+# each group). Trained FRESH from the base Qwen3-4B model (NOT continuing from the RLCR
+# checkpoint) -- confidence is only used as a per-example difficulty/ordering signal derived from
+# the already-trained RLCR-ng16 checkpoint's own confidence on the training set, matching the
+# 1.7B RLCC-fresh recipe (configs/Qwen-1.7B/mixed/RLCC-n3-fresh.yaml).
+# Dataset: data/RLCC-qwen3-4B-bigmathdigits5000-n3-flat, built via scripts/build_rlcc_dataset.py
+# from eval_outputs/qwen3-4B-RLCR-ng16-trainset (confidence_column
+# RLCR-qwen3-4B-ng16-trainset-confidence_levels), num_groups=3.
+# All other hyperparameters copied from configs/Qwen-4B/math/RLCR-5000-ng16.yaml (the working,
+# stability-tuned 4B recipe: no DeepSpeed -- accelerate_single_gpu.yaml -- adamw_bnb_8bit,
+# num_generations=16, batch=2/ga=16, vllm_gpu_memory_utilization=0.55).
+
+# Model arguments
+model_name_or_path: Qwen/Qwen3-4B
+run_name: "RLCC-qwen3-4B-bigmathdigits5000-n3-fresh"
+output_dir: data/RLCC-qwen3-4B-bigmathdigits5000-n3-fresh
+model_revision: main
+torch_dtype: bfloat16
+attn_implementation: flash_attention_2
+
+# Data training arguments
+dataset_name: data/RLCC-qwen3-4B-bigmathdigits5000-n3-flat
+shuffle_dataset: false
+num_processes: 1
+
+# GRPO trainer config
+bf16: true
+beta: 0.0
+eval_strategy: "no"
+eval_on_start: false
+format_pattern: "tabc"
+gradient_accumulation_steps: 16
+gradient_checkpointing: true
+gradient_checkpointing_kwargs:
+  use_reentrant: false
+hub_strategy: "end"
+learning_rate: 5e-6
+log_level: info
+logging_steps: 1
+logging_strategy: steps
+lr_scheduler_type: linear
+mask_truncated_completions: false
+max_prompt_length: 768
+max_completion_length: 1024
+max_steps: -1
+num_generations: 16
+num_iterations: 1
+num_train_epochs: 1
+optim: adamw_bnb_8bit
+overwrite_output_dir: true
+per_device_train_batch_size: 2
+push_to_hub: false
+report_to: []
+reward_funcs: ["format","accuracy","brier","mean_confidence","confidence_one_or_zero"]
+reward_weights: [0.5,0.5,0.5,0.00001,0.00001]
+save_strategy: "steps"
+save_steps: 250
+save_total_limit: 1
+scale_rewards: false
+seed: 43
+sys_prompt_name: "tabc"
+temperature: 0.7
+use_vllm: true
+vllm_device: auto
+vllm_gpu_memory_utilization: 0.55
+warmup_ratio: 0.20

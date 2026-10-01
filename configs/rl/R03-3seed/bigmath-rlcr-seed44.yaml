@@ -1,0 +1,57 @@
+# RLCR run, seed 44 -- repeat of RLCR-5000.yaml for rebuttal multi-seed variance.
+# Identical to RLCR-5000.yaml except seed/run_name/output_dir.
+
+# Model arguments
+model_name_or_path: Qwen/Qwen3-1.7B
+run_name: "RLCR-qwen3-1.7B-bigmathdigits5000-ng32-seed44"
+output_dir: persist/RLCR-qwen3-1.7B-bigmathdigits5000-ng32-seed44
+model_revision: main
+torch_dtype: bfloat16
+attn_implementation: flash_attention_2
+
+# Data training arguments
+dataset_name: mehuldamani/big-math-digits
+train_subset_size: 5000
+num_processes: 1
+
+# GRPO trainer config
+bf16: true
+beta: 0.0
+eval_strategy: "no"
+eval_on_start: false
+format_pattern: "tabc"
+gradient_accumulation_steps: 32
+gradient_checkpointing: true
+gradient_checkpointing_kwargs:
+  use_reentrant: false
+hub_strategy: "end"
+learning_rate: 5e-06
+log_level: info
+logging_steps: 1
+logging_strategy: steps
+lr_scheduler_type: linear
+mask_truncated_completions: false
+max_prompt_length: 768
+max_completion_length: 1024
+max_steps: -1
+num_generations: 32
+num_iterations: 1
+num_train_epochs: 1
+optim: adamw_bnb_8bit
+overwrite_output_dir: true
+per_device_train_batch_size: 1
+push_to_hub: false
+report_to: []
+reward_funcs: ["format","accuracy","brier","mean_confidence","confidence_one_or_zero"]
+reward_weights: [0.5,0.5,0.5,0.00001,0.00001]
+save_strategy: "steps"
+save_steps: 250
+save_total_limit: 1
+scale_rewards: false
+seed: 44
+sys_prompt_name: "tabc"
+temperature: 0.7
+use_vllm: true
+vllm_device: auto
+vllm_gpu_memory_utilization: 0.25
+warmup_ratio: 0.20

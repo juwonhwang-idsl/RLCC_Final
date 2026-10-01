@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+wandb/
+.ipynb_checkpoints/
+*.safetensors
+*.bin
+optimizer.pt
+scheduler.pt
+rng_state.pth
+*.arrow

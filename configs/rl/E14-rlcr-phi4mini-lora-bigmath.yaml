@@ -1,0 +1,69 @@
+# RLCR on Phi-4-mini-instruct (3.8B), big-math-digits, full 5000 examples, LoRA (same param-count
+# class as Qwen2.5-3B/Llama-3.2-3B, both needed LoRA to avoid OOM on this 24GB card).
+# save_steps 250 so checkpoint-500 can be pulled early as a smoke check.
+# max_steps overridden to 2188 after switching 1-GPU->4-GPU (GPU2,5,6,7) at checkpoint-1250:
+# num_train_epochs-based auto calc recomputes total steps as batch size scales with num_processes,
+# so resuming at global_step=1250 under the new 4x-bigger batch (16->64) hit the recalculated
+# 1-GPU-equivalent target (1250) instantly and ended training with only 25% of the intended epoch
+# actually trained (a silent no-op "completion"). 2188 = 1250 + ceil((5000-1250)*16/64), i.e. enough
+# additional 4-GPU steps to cover the remaining ~75% of the original 1-epoch data volume.
+
+# Model arguments
+model_name_or_path: microsoft/Phi-4-mini-instruct
+run_name: "RLCR-phi4mini-bigmathdigits5000-lora"
+output_dir: data/RLCR-phi4mini-bigmathdigits5000-lora
+model_revision: main
+torch_dtype: bfloat16
+attn_implementation: flash_attention_2
+use_peft: true
+lora_r: 16
+lora_alpha: 32
+lora_dropout: 0.05
+lora_target_modules: ["qkv_proj", "o_proj", "gate_up_proj", "down_proj"]
+
+# Data training arguments
+dataset_name: mehuldamani/big-math-digits
+train_subset_size: 5000
+num_processes: 1
+
+# GRPO trainer config
+bf16: true
+beta: 0.0
+eval_strategy: "no"
+eval_on_start: false
+format_pattern: "tabc"
+gradient_accumulation_steps: 16
+gradient_checkpointing: true
+gradient_checkpointing_kwargs:
+  use_reentrant: false
+hub_strategy: "end"
+learning_rate: 1e-06
+log_level: info
+logging_steps: 1
+logging_strategy: steps
+lr_scheduler_type: constant_with_warmup
+mask_truncated_completions: false
+max_prompt_length: 768
+max_completion_length: 1024
+max_steps: 2188
+num_generations: 16
+num_iterations: 1
+num_train_epochs: 1
+optim: adamw_bnb_8bit
+overwrite_output_dir: true
+per_device_train_batch_size: 1
+push_to_hub: false
+report_to: []
+reward_funcs: ["format","accuracy","brier","mean_confidence","confidence_one_or_zero"]
+reward_weights: [0.5,0.5,0.5,0.000001,0.000001]
+save_strategy: "steps"
+save_steps: 250
+save_total_limit: 1
+scale_rewards: false
+seed: 43
+sys_prompt_name: "tabc"
+temperature: 0.7
+use_vllm: true
+vllm_device: auto
+vllm_gpu_memory_utilization: 0.45
+warmup_ratio: 0.05

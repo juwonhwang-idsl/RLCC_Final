@@ -1,0 +1,19 @@
+[
+
+{
+    "dataset_name": "mehuldamani/big-math-digits",
+    "hash_key": "problem",
+    "split": "test",
+    "store_name": "eval_outputs/qwen3-1p7B-n1-ckpt5000",
+    "gpu_memory_utilization": 0.6,
+    "log_path": "results/qwen3-1p7B-n1-ckpt5000"
+},
+
+{   "name": "N1-ckpt5000",
+"model": "juwon1105/RLCC-qwen3-1.7B-bigmathdigits5000-k1",
+"check_fn": "confidence_verifier",
+"sys_prompt_name": "tabc",
+"vllm_task": ["confidence_at_end","ans_at_end"]
+}
+
+]

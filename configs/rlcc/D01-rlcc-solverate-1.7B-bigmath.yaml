@@ -1,0 +1,75 @@
+# RLCC run: Qwen3-1.7B, big-math-digits, single GPU, num_generations=32.
+# Same per-step settings as RLCR-original's configs/Qwen-1.7B/math/RLCR-5000-ng32.yaml -- the only
+# intentional difference from that baseline run is data order.
+#
+# This is the "external difficulty metric" curriculum comparison arm: the 5000 train examples are
+# shuffled, split into 3 equal groups, and each group is sorted independently by descending
+# llama8b_solve_rate (a difficulty proxy already bundled in the big-math-digits dataset, computed by
+# a separate Llama-8B model -- not our own model's confidence or loss), ties shuffled, then the 3
+# sorted groups are concatenated. Descending solve_rate = easiest first, same convention as the
+# confidence-based RLCC arm. See scripts/build_rlcc_dataset.py (seed=0, num_groups=3, group sizes
+# 1667/1666/1667).
+
+#
+# Comparison arms (same shuffle/grouping, only sort criterion differs):
+#   - RLCC (RLCC-qwen3-1p7B-...yaml): descending model confidence per group
+#   - RLCC-ascending: ascending model confidence per group (hard first)
+#   - RLCC-llama8bsolve (this config): descending llama8b_solve_rate per group (external difficulty metric)
+#   - random baseline: RLCR-original/configs/Qwen-1.7B/math/RLCR-5000-ng32.yaml (already completed)
+
+# Model arguments
+model_name_or_path: Qwen/Qwen3-1.7B
+run_name: "RLCC-llama8bsolve-qwen3-1.7B-bigmathdigits5000-n3-from-ckpt5000"
+output_dir: persist/RLCC-llama8bsolve-qwen3-1.7B-bigmathdigits5000-n3-from-ckpt5000
+model_revision: main
+torch_dtype: bfloat16
+attn_implementation: flash_attention_2
+
+# Data training arguments
+dataset_name: mehuldamani/big-math-digits
+rlcc_preordered_dataset_path: persist/rlcc-bigmathdigits-qwen3-1p7B-llama8bsolve-n3/combined
+train_subset_size: 5000
+num_processes: 1
+
+# GRPO trainer config
+bf16: true
+beta: 0.0
+eval_strategy: "no"
+eval_on_start: false
+format_pattern: "tabc"
+gradient_accumulation_steps: 32
+gradient_checkpointing: true
+gradient_checkpointing_kwargs:
+  use_reentrant: false
+hub_strategy: "end"
+learning_rate: 5e-06
+log_level: info
+logging_steps: 1
+logging_strategy: steps
+lr_scheduler_type: linear
+mask_truncated_completions: false
+max_prompt_length: 768
+max_completion_length: 1024
+max_steps: -1
+num_generations: 32
+num_iterations: 1
+num_train_epochs: 1
+optim: adamw_bnb_8bit
+overwrite_output_dir: true
+per_device_train_batch_size: 1
+push_to_hub: false
+report_to: []
+reward_funcs: ["format","accuracy","brier","mean_confidence","confidence_one_or_zero"]
+reward_weights: [0.5,0.5,0.5,0.00001,0.00001]
+save_strategy: "steps"
+save_steps: 250
+save_total_limit: 1
+scale_rewards: false
+seed: 43
+shuffle_dataset: false
+sys_prompt_name: "tabc"
+temperature: 0.7
+use_vllm: true
+vllm_device: auto
+vllm_gpu_memory_utilization: 0.4
+warmup_ratio: 0.20

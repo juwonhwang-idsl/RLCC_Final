@@ -1,0 +1,20 @@
+[
+ {
+  "dataset_name": "mehuldamani/big-math-digits",
+  "hash_key": "problem",
+  "split": "test",
+  "store_name": "eval_outputs/K03-rlcc-k4-heldout",
+  "gpu_memory_utilization": 0.6,
+  "log_path": "results/K03-rlcc-k4-heldout"
+ },
+ {
+  "name": "K03-rlcc-k4",
+  "model": "juwon1105/RLCC-qwen3-1.7B-bigmathdigits5000-k4",
+  "check_fn": "confidence_verifier",
+  "sys_prompt_name": "tabc",
+  "vllm_task": [
+   "confidence_at_end",
+   "ans_at_end"
+  ]
+ }
+]

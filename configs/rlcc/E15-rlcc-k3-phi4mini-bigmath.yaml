@@ -1,0 +1,81 @@
+# Redo of RLCC-n3-from-ckpt2188.yaml with two fixes:
+#
+# 1. model_name_or_path was pointed at the merged RLCR checkpoint, so this trained as an
+#    additional fine-tuning phase ON TOP of an already-trained model -- a confound where any
+#    improvement over RLCR could just be "more total gradient steps," unrelated to data order.
+#    Fixed to start from the same base model RLCR itself started from (microsoft/Phi-4-mini-instruct),
+#    matching how the Qwen3-1.7B RLCC comparison was actually done (both RLCR and RLCC train fresh
+#    from the base model, same total exposure, only the row order differs).
+#
+# 2. shuffle_dataset was never set, so GRPOConfig's default (True) applied and the trainer's
+#    RepeatSampler ran torch.randperm on top of the carefully pre-sorted dataset, erasing the
+#    within-batch confidence homogeneity the whole point of RLCC depends on. Set explicitly to
+#    false here so training actually sees the sorted row order in its batches.
+#
+# output_dir changed (new path) so this doesn't pick up the old (confounded) run's checkpoint via
+# get_last_checkpoint() auto-resume.
+#
+# Confidence source unchanged: eval_outputs/phi4mini-rlcr-ckpt2188-trainset-conf-merged, sorted via
+# scripts/build_rlcc_dataset.py (seed=0, num_groups=3) into persist/rlcc-phi4mini-bigmathdigits5000-n3/combined.
+
+# Model arguments
+model_name_or_path: microsoft/Phi-4-mini-instruct
+run_name: "RLCC-phi4mini-bigmathdigits5000-n3-from-base"
+output_dir: persist/RLCC-phi4mini-bigmathdigits5000-n3-from-base
+model_revision: main
+torch_dtype: bfloat16
+attn_implementation: flash_attention_2
+use_peft: true
+lora_r: 16
+lora_alpha: 32
+lora_dropout: 0.05
+lora_target_modules: ["qkv_proj", "o_proj", "gate_up_proj", "down_proj"]
+
+# Data training arguments
+dataset_name: mehuldamani/big-math-digits
+rlcc_preordered_dataset_path: persist/rlcc-phi4mini-bigmathdigits5000-n3/combined
+train_subset_size: 5000
+num_processes: 1
+
+# GRPO trainer config
+bf16: true
+beta: 0.0
+eval_strategy: "no"
+eval_on_start: false
+format_pattern: "tabc"
+gradient_accumulation_steps: 16
+gradient_checkpointing: true
+gradient_checkpointing_kwargs:
+  use_reentrant: false
+hub_strategy: "end"
+learning_rate: 1e-06
+log_level: info
+logging_steps: 1
+logging_strategy: steps
+lr_scheduler_type: constant_with_warmup
+mask_truncated_completions: false
+max_prompt_length: 768
+max_completion_length: 1024
+max_steps: -1
+num_generations: 16
+num_iterations: 1
+num_train_epochs: 1
+optim: adamw_bnb_8bit
+overwrite_output_dir: true
+per_device_train_batch_size: 1
+push_to_hub: false
+report_to: []
+reward_funcs: ["format","accuracy","brier","mean_confidence","confidence_one_or_zero"]
+reward_weights: [0.5,0.5,0.5,0.000001,0.000001]
+save_strategy: "steps"
+save_steps: 250
+save_total_limit: 1
+scale_rewards: false
+seed: 43
+shuffle_dataset: false
+sys_prompt_name: "tabc"
+temperature: 0.7
+use_vllm: true
+vllm_device: auto
+vllm_gpu_memory_utilization: 0.45
+warmup_ratio: 0.05

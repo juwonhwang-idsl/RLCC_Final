@@ -1,0 +1,20 @@
+[
+ {
+  "dataset_name": "mehuldamani/big-math-digits",
+  "hash_key": "problem",
+  "split": "test",
+  "store_name": "eval_outputs/R01-rlcc-baseconf-heldout",
+  "gpu_memory_utilization": 0.6,
+  "log_path": "results/R01-rlcc-baseconf-heldout"
+ },
+ {
+  "name": "R01-rlcc-baseconf",
+  "model": "/home/zr0rtv/RLCR-original/persist/RLCC-base-rlvr-posthoc-qwen3-1.7B-bigmathdigits5000-n3-seed43/checkpoint-5000",
+  "check_fn": "confidence_verifier",
+  "sys_prompt_name": "tabc",
+  "vllm_task": [
+   "confidence_at_end",
+   "ans_at_end"
+  ]
+ }
+]

@@ -1,0 +1,61 @@
+# Smoke test variant of RLCR-5000-ng16.yaml: max_completion_length bumped 768 -> 1280 to test
+# whether the poor-calibration result from the ng16 run (see eval on
+# eval_outputs/qwen3-1p7B-hotpotrlcr-ckpt-vanilla, ECE 0.40) was caused by completions getting
+# clipped before the model could finish its <analysis>/<confidence> spans (we saw at least one
+# training step with completions/clipped_ratio=1.0 and all rewards 0 under the 768 cap), rather
+# than by num_generations=16 itself. Everything else identical to RLCR-5000-ng16.yaml.
+
+# Model arguments
+model_name_or_path: Qwen/Qwen3-1.7B
+run_name: "RLCR-qwen3-1.7B-hotpot5000-ng16-longcomp"
+output_dir: data/RLCR-qwen3-1.7B-hotpot5000-ng16-longcomp
+model_revision: main
+torch_dtype: bfloat16
+attn_implementation: flash_attention_2
+
+# Data training arguments
+dataset_name: mehuldamani/hotpot_qa
+train_subset_size: 5000
+num_processes: 1
+
+# GRPO trainer config
+bf16: true
+beta: 0.0
+eval_strategy: "no"
+eval_on_start: false
+format_pattern: "tabc"
+gradient_accumulation_steps: 16
+gradient_checkpointing: true
+gradient_checkpointing_kwargs:
+  use_reentrant: false
+hub_strategy: "end"
+learning_rate: 1e-06
+log_level: info
+logging_steps: 1
+logging_strategy: steps
+lr_scheduler_type: constant_with_warmup
+mask_truncated_completions: false
+max_prompt_length: 2048
+max_completion_length: 1280
+max_steps: -1
+num_generations: 16
+num_iterations: 1
+num_train_epochs: 1
+optim: adamw_bnb_8bit
+overwrite_output_dir: true
+per_device_train_batch_size: 1
+push_to_hub: false
+report_to: []
+reward_funcs: ["format","accuracy","brier","mean_confidence","confidence_one_or_zero"]
+reward_weights: [0.5,0.5,0.5,0.000001,0.000001]
+save_strategy: "steps"
+save_steps: 250
+save_total_limit: 1
+scale_rewards: false
+seed: 43
+sys_prompt_name: "tabc_long"
+temperature: 0.7
+use_vllm: true
+vllm_device: auto
+vllm_gpu_memory_utilization: 0.2
+warmup_ratio: 0.05

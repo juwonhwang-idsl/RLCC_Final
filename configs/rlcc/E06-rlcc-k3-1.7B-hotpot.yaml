@@ -1,0 +1,74 @@
+# RLCC run: hotpot, REAL FIX -- the originally-published Hotpot RLCC checkpoint was trained via
+# RLCR-original's rl_runner.py, which silently ignored rlcc_preordered_dataset_path because that
+# codebase never had RLAA/curriculum-loading support ported in (confirmed via code inspection +
+# Spearman correlation between curriculum order and per-step reward ~= 0, statistically
+# indistinguishable from random). This config launches via RLCC/rl_runner.py instead, which does
+# implement it.
+#
+# This exact config was actually executed (run_name "...-n3-seed43-fixed", trained 2026-09-15,
+# log confirms "RLAA: loading preordered train dataset..." fired correctly) -- it is not a
+# hypothetical replacement. Held-out metrics: acc 0.516, ECE 0.205, PCE 0.171, Brier 0.221,
+# AUROC 0.793 (see configs/eval_configs/E06-rlcc-k3-1.7B-hotpot-heldout.json). This checkpoint
+# also doubles as R03's hotpot-rlcc seed43 reproduction run (same seed, same run).
+#
+# Curriculum data is unchanged/still correct (built from data/RLCR-qwen3-1.7B-hotpot5000-ng16-longcomp
+# evaluated on its own training set, descending within 3 shuffled groups) -- only the training
+# script actually consuming it is fixed. All hyperparameters otherwise identical to the paper's
+# hotpot config (RLCR-original/configs/Qwen-1.7B/hotpot/RLCC-5000.yaml).
+
+# Model arguments
+model_name_or_path: Qwen/Qwen3-1.7B
+run_name: "RLCC-qwen3-1.7B-hotpot5000-n3-seed43-fixed"
+output_dir: persist/RLCC-qwen3-1.7B-hotpot5000-n3-seed43-fixed
+model_revision: main
+torch_dtype: bfloat16
+attn_implementation: flash_attention_2
+
+# Data training arguments
+dataset_name: mehuldamani/hotpot_qa
+rlcc_preordered_dataset_path: /home/zr0rtv/RLCR-original/persist/rlcc-hotpot-qwen3-1p7B-ng16longcomp-n3/combined
+train_subset_size: 5000
+num_processes: 1
+
+# GRPO trainer config
+bf16: true
+beta: 0.0
+eval_strategy: "no"
+eval_on_start: false
+format_pattern: "tabc"
+gradient_accumulation_steps: 16
+gradient_checkpointing: true
+gradient_checkpointing_kwargs:
+  use_reentrant: false
+hub_strategy: "end"
+learning_rate: 1e-06
+log_level: info
+logging_steps: 1
+logging_strategy: steps
+lr_scheduler_type: constant_with_warmup
+mask_truncated_completions: false
+max_prompt_length: 2048
+max_completion_length: 1280
+max_steps: -1
+num_generations: 16
+num_iterations: 1
+num_train_epochs: 1
+optim: adamw_bnb_8bit
+overwrite_output_dir: true
+per_device_train_batch_size: 1
+push_to_hub: false
+report_to: []
+reward_funcs: ["format","accuracy","brier","mean_confidence","confidence_one_or_zero"]
+reward_weights: [0.5,0.5,0.5,0.000001,0.000001]
+save_strategy: "steps"
+save_steps: 250
+save_total_limit: 1
+scale_rewards: false
+seed: 43
+shuffle_dataset: false
+sys_prompt_name: "tabc_long"
+temperature: 0.7
+use_vllm: true
+vllm_device: auto
+vllm_gpu_memory_utilization: 0.2
+warmup_ratio: 0.05

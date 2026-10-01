@@ -1,0 +1,61 @@
+# RLCR run: Qwen3-4B (Instruct), math-only (5000 big-math-digits examples, shuffled seed=43).
+# Dataset: data/bigmathdigits5000-flat (sampled from data/big-math-digits, same source as
+# mehuldamani/big-math-digits used in the 1.7B recipe).
+# Hyperparameters copied verbatim from configs/Qwen-1.7B/math/RLCR-5000-ng32.yaml (the recipe
+# actually used for the 1.7B math-only RLCR run), swapping only the model/output paths.
+# Baseline reference: Qwen3-4B-Instruct zero-shot on big-math-digits test500 -- accuracy 0.510,
+# brier 0.365, ece 0.390, auroc 0.789, confidence 0.900.
+
+# Model arguments
+model_name_or_path: Qwen/Qwen3-4B
+run_name: "RLCR-qwen3-4B-bigmathdigits5000-ng16"
+output_dir: data/RLCR-qwen3-4B-bigmathdigits5000-ng16
+model_revision: main
+torch_dtype: bfloat16
+attn_implementation: flash_attention_2
+
+# Data training arguments
+dataset_name: data/bigmathdigits5000-flat
+num_processes: 1
+
+# GRPO trainer config
+bf16: true
+beta: 0.0
+eval_strategy: "no"
+eval_on_start: false
+format_pattern: "tabc"
+gradient_accumulation_steps: 16
+gradient_checkpointing: true
+gradient_checkpointing_kwargs:
+  use_reentrant: false
+hub_strategy: "end"
+learning_rate: 5e-6
+log_level: info
+logging_steps: 1
+logging_strategy: steps
+lr_scheduler_type: linear
+mask_truncated_completions: false
+max_prompt_length: 768
+max_completion_length: 1024
+max_steps: -1
+num_generations: 16
+num_iterations: 1
+num_train_epochs: 1
+optim: adamw_bnb_8bit
+overwrite_output_dir: true
+per_device_train_batch_size: 2
+push_to_hub: false
+report_to: []
+reward_funcs: ["format","accuracy","brier","mean_confidence","confidence_one_or_zero"]
+reward_weights: [0.5,0.5,0.5,0.00001,0.00001]
+save_strategy: "steps"
+save_steps: 250
+save_total_limit: 1
+scale_rewards: false
+seed: 43
+sys_prompt_name: "tabc"
+temperature: 0.7
+use_vllm: true
+vllm_device: auto
+vllm_gpu_memory_utilization: 0.55
+warmup_ratio: 0.20

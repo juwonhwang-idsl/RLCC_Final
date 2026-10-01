@@ -1,0 +1,66 @@
+# RLVR on Llama-3.2-3B-Instruct, big-math-digits, full 5000 examples, LoRA.
+# Companion baseline to RLCR-5000-ng16-lora.yaml -- same model/data/LoRA/hyperparameters, but reward
+# is plain format+accuracy only (no brier/confidence terms), matching how RLVR configs are derived
+# from their RLCR counterparts elsewhere (e.g. Qwen-1.7B/math/RLVR-5000-ng32.yaml vs RLCR-5000-ng32.yaml,
+# Phi-4-mini/math/RLVR-5000-lora.yaml vs RLCR-5000-lora.yaml).
+# num_processes/gradient_accumulation_steps set for a 2-GPU launch (0,1), effective batch kept at 16
+# (2 * 1 * 8) to match the 1-GPU RLCR run's effective batch (1 * 1 * 16).
+
+# Model arguments
+model_name_or_path: meta-llama/Llama-3.2-3B-Instruct
+run_name: "RLVR-llama32-3B-bigmathdigits5000-ng16-lora"
+output_dir: data/RLVR-llama32-3B-bigmathdigits5000-ng16-lora
+model_revision: main
+torch_dtype: bfloat16
+attn_implementation: flash_attention_2
+use_peft: true
+lora_r: 16
+lora_alpha: 32
+lora_dropout: 0.05
+
+# Data training arguments
+dataset_name: mehuldamani/big-math-digits
+train_subset_size: 5000
+num_processes: 2
+
+# GRPO trainer config
+bf16: true
+beta: 0.0
+eval_strategy: "no"
+eval_on_start: false
+format_pattern: "ta"
+gradient_accumulation_steps: 8
+gradient_checkpointing: true
+gradient_checkpointing_kwargs:
+  use_reentrant: false
+hub_strategy: "end"
+learning_rate: 5e-06
+log_level: info
+logging_steps: 1
+logging_strategy: steps
+lr_scheduler_type: linear
+mask_truncated_completions: false
+max_prompt_length: 768
+max_completion_length: 1024
+max_steps: -1
+num_generations: 16
+num_iterations: 1
+num_train_epochs: 1
+optim: adamw_bnb_8bit
+overwrite_output_dir: true
+per_device_train_batch_size: 1
+push_to_hub: false
+report_to: []
+reward_funcs: ["format","accuracy"]
+reward_weights: [0.5,0.5]
+save_strategy: "steps"
+save_steps: 250
+save_total_limit: 1
+scale_rewards: false
+seed: 43
+sys_prompt_name: "gen"
+temperature: 0.7
+use_vllm: true
+vllm_device: auto
+vllm_gpu_memory_utilization: 0.3
+warmup_ratio: 0.20

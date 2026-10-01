@@ -1,0 +1,19 @@
+[
+ {
+  "dataset_name": "juwon1105/hotpot_qa_train_heldout1000",
+  "hash_key": "problem",
+  "split": "test",
+  "store_name": "eval_outputs/E06-rlcc-k3-1.7B-hotpot-heldout",
+  "gpu_memory_utilization": 0.6,
+  "log_path": "results/E06-rlcc-k3-1.7B-hotpot-heldout"
+ },
+ {
+  "name": "E06-rlcc-k3-1.7B-hotpot",
+  "model": "persist/RLCC-qwen3-1.7B-hotpot5000-n3-seed43-fixed/checkpoint-5000",
+  "check_fn": "llm_confidence_verifier",
+  "check_fn_args": {
+   "judge_model": "Qwen/Qwen2.5-7B-Instruct"
+  },
+  "sys_prompt_name": "tabc_long"
+ }
+]
