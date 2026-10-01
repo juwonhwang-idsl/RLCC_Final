@@ -1,0 +1,11 @@
+{
+  "note": "Local metrics.json from A100 (clean variant is the paper-reported R05 number; src variant was a different A100-local experiment and was not used).",
+  "AdaRLCR-bs64-g32-step79-heldout1000-clean": {
+    "acc": 0.588,
+    "ece": 0.371,
+    "pce": 0.37,
+    "brier": 0.362,
+    "auroc": 0.604,
+    "confidence_level": 0.957
+  }
+}

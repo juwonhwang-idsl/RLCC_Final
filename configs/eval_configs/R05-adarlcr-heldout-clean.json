@@ -3,15 +3,15 @@
     "dataset_name": "mehuldamani/big-math-digits",
     "hash_key": "problem",
     "split": "test",
-    "store_name": "results/qwen3-1p7B-adarlcr-bigmathdigits-heldout-src/output",
+    "store_name": "results/qwen3-1p7B-adarlcr-bigmathdigits-heldout-clean/output",
     "gpu_memory_utilization": 0.6,
     "max_model_len": 2048,
     "tensor_parallel_size": 1,
-    "log_path": "results/qwen3-1p7B-adarlcr-bigmathdigits-heldout-src/metrics",
+    "log_path": "results/qwen3-1p7B-adarlcr-bigmathdigits-heldout-clean/metrics",
     "fresh": true
   },
   {
-    "name": "AdaRLCR-bs64-g32-step79-heldout1000-src",
+    "name": "AdaRLCR-bs64-g32-step79-heldout1000-clean",
     "model": "persist/AdaRLCR-qwen3-1.7B-bigmathdigits5000-bs64-g32-seed43",
     "n": 1, "temperature": 0, "seed": 43,
     "check_fn": "confidence_verifier", "sys_prompt_name": "tac", "max_tokens": 1024,
