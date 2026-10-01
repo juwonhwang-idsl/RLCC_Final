@@ -47,6 +47,26 @@ Configs are named after the paper result they produce:
 | `K01`-`K04` | Restart-count sweep, K in {1,2,4,5} (K=3 is E03) (Table 7) |
 | `R01`-`R07` | Experiments added during rebuttal (to be incorporated into the paper later) |
 
+### Datasets
+
+All configs reference datasets by their public Hugging Face path, no local files needed:
+
+| Dataset | Source |
+|---|---|
+| Big-Math-digits (train) | [`mehuldamani/big-math-digits`](https://huggingface.co/datasets/mehuldamani/big-math-digits) |
+| HotpotQA-Modified (train) | [`mehuldamani/hotpot_qa`](https://huggingface.co/datasets/mehuldamani/hotpot_qa) |
+| Big-Math-digits held-out eval | [`juwon1105/hotpot_qa_train_heldout1000`](https://huggingface.co/datasets/juwon1105/hotpot_qa_train_heldout1000) (Hotpot) / `mehuldamani/big-math-digits` test split (Big-Math) |
+| MATH500 | [`HuggingFaceH4/MATH-500`](https://huggingface.co/datasets/HuggingFaceH4/MATH-500) |
+| AIME 2024 | [`HuggingFaceH4/aime_2024`](https://huggingface.co/datasets/HuggingFaceH4/aime_2024) |
+| AIME 2025 | [`yentinglin/aime_2025`](https://huggingface.co/datasets/yentinglin/aime_2025) |
+| AMC23 | [`knoveleng/AMC-23`](https://huggingface.co/datasets/knoveleng/AMC-23) |
+| AMC24 | [`juwon1105/amc2024`](https://huggingface.co/datasets/juwon1105/amc2024) |
+| 2WikiMultiHopQA (OOD) | [`juwon1105/2wikimultihopqa_val500`](https://huggingface.co/datasets/juwon1105/2wikimultihopqa_val500) |
+| MuSiQue (OOD) | [`juwon1105/musique_eval_baseline500`](https://huggingface.co/datasets/juwon1105/musique_eval_baseline500) |
+| WikiHop (OOD) | [`juwon1105/wikihop_val500`](https://huggingface.co/datasets/juwon1105/wikihop_val500) |
+
+Model checkpoints referenced by `configs/eval_configs/` are likewise published under [`juwon1105`](https://huggingface.co/juwon1105) on Hugging Face.
+
 ### Setup
 
 ```bash
@@ -119,6 +139,26 @@ results/           주요 결과 수치 (accuracy/ECE/PCE/Brier/AUROC). 모델�
 | `D01`-`D02` | Difficulty-signal ablation: solve-rate / answer-NLL vs. confidence (Table 6) |
 | `K01`-`K04` | Restart 횟수 스윕, K ∈ {1,2,4,5} (K=3는 E03) (Table 7) |
 | `R01`-`R07` | Rebuttal에서 추가된 실험 (추후 논문에 반영 예정) |
+
+### 데이터셋
+
+모든 config는 로컬 파일 없이 공개 Hugging Face 경로로 데이터셋을 참조합니다:
+
+| 데이터셋 | 출처 |
+|---|---|
+| Big-Math-digits (학습용) | [`mehuldamani/big-math-digits`](https://huggingface.co/datasets/mehuldamani/big-math-digits) |
+| HotpotQA-Modified (학습용) | [`mehuldamani/hotpot_qa`](https://huggingface.co/datasets/mehuldamani/hotpot_qa) |
+| held-out 평가셋 | [`juwon1105/hotpot_qa_train_heldout1000`](https://huggingface.co/datasets/juwon1105/hotpot_qa_train_heldout1000) (Hotpot) / `mehuldamani/big-math-digits`의 test split (Big-Math) |
+| MATH500 | [`HuggingFaceH4/MATH-500`](https://huggingface.co/datasets/HuggingFaceH4/MATH-500) |
+| AIME 2024 | [`HuggingFaceH4/aime_2024`](https://huggingface.co/datasets/HuggingFaceH4/aime_2024) |
+| AIME 2025 | [`yentinglin/aime_2025`](https://huggingface.co/datasets/yentinglin/aime_2025) |
+| AMC23 | [`knoveleng/AMC-23`](https://huggingface.co/datasets/knoveleng/AMC-23) |
+| AMC24 | [`juwon1105/amc2024`](https://huggingface.co/datasets/juwon1105/amc2024) |
+| 2WikiMultiHopQA (OOD) | [`juwon1105/2wikimultihopqa_val500`](https://huggingface.co/datasets/juwon1105/2wikimultihopqa_val500) |
+| MuSiQue (OOD) | [`juwon1105/musique_eval_baseline500`](https://huggingface.co/datasets/juwon1105/musique_eval_baseline500) |
+| WikiHop (OOD) | [`juwon1105/wikihop_val500`](https://huggingface.co/datasets/juwon1105/wikihop_val500) |
+
+`configs/eval_configs/`가 참조하는 모델 체크포인트들도 마찬가지로 Hugging Face [`juwon1105`](https://huggingface.co/juwon1105) 계정에 공개되어 있습니다.
 
 ### 설치
 

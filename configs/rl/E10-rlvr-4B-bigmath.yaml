@@ -14,7 +14,7 @@ torch_dtype: bfloat16
 attn_implementation: flash_attention_2
 
 # Data training arguments
-dataset_name: data/bigmathdigits5000-flat
+dataset_name: mehuldamani/big-math-digits
 num_processes: 1
 
 # GRPO trainer config

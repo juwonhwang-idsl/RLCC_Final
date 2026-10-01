@@ -19,7 +19,7 @@ torch_dtype: bfloat16
 attn_implementation: flash_attention_2
 
 # Data training arguments
-dataset_name: data/RLCC-qwen3-4B-bigmathdigits5000-n3-flat
+dataset_name: mehuldamani/big-math-digits
 shuffle_dataset: false
 num_processes: 1
 
