@@ -25,7 +25,7 @@
   },
   {
     "name": "RLCC-Qwen3-1.7B-Hotpot5000-seed44",
-    "model": "persist/RLCC-qwen3-1.7B-hotpot5000-n3-seed44/checkpoint-5000",
+    "model": "persist/RLCC-qwen3-1.7B-hotpot5000-n3-seed44-confidence44-e2e/checkpoint-5000",
     "check_fn": "llm_confidence_verifier_wikihop",
     "check_fn_args": {
       "judge_model": "Qwen/Qwen2.5-7B-Instruct"
