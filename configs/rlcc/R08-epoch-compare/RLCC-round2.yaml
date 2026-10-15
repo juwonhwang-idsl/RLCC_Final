@@ -1,0 +1,63 @@
+# Second-round RLCC: continues from the finished round-1 RLCC checkpoint (E03), as a second,
+# independent training phase (fresh optimizer/warmup state, matching how RLCR-epoch2/3.yaml are
+# structured). The curriculum for this round is built from THIS checkpoint's own confidence
+# on the training set (not E02/RLCR's), sorted the same way as round 1 (shuffle, 3 groups,
+# descending confidence per group). Compares against RLCR-epoch3.yaml at equal total RL compute
+# (RLCR 3-epoch vs RLCC 1-epoch + 2 curriculum rounds, both 15000 example-exposures).
+
+# Model arguments
+model_name_or_path: persist/RLCC-qwen3-1.7B-bigmathdigits5000-n3-from-ckpt5000
+run_name: "RLCC-qwen3-1.7B-bigmathdigits5000-n3-round2"
+output_dir: persist/RLCC-qwen3-1.7B-bigmathdigits5000-n3-round2
+model_revision: main
+torch_dtype: bfloat16
+attn_implementation: flash_attention_2
+
+# Data training arguments
+dataset_name: mehuldamani/big-math-digits
+rlcc_preordered_dataset_path: persist/rlcc-bigmathdigits-qwen3-1p7B-round2-n3/combined
+train_subset_size: 5000
+num_processes: 1
+
+# GRPO trainer config
+bf16: true
+beta: 0.0
+eval_strategy: "no"
+eval_on_start: false
+format_pattern: "tabc"
+gradient_accumulation_steps: 32
+gradient_checkpointing: true
+gradient_checkpointing_kwargs:
+  use_reentrant: false
+hub_strategy: "end"
+learning_rate: 5e-06
+log_level: info
+logging_steps: 1
+logging_strategy: steps
+lr_scheduler_type: linear
+mask_truncated_completions: false
+max_prompt_length: 768
+max_completion_length: 1024
+max_steps: -1
+num_generations: 32
+num_iterations: 1
+num_train_epochs: 1
+optim: adamw_bnb_8bit
+overwrite_output_dir: true
+per_device_train_batch_size: 1
+push_to_hub: false
+report_to: []
+reward_funcs: ["format","accuracy","brier","mean_confidence","confidence_one_or_zero"]
+reward_weights: [0.5,0.5,0.5,0.00001,0.00001]
+save_strategy: "steps"
+save_steps: 250
+save_total_limit: 1
+scale_rewards: false
+seed: 1143
+shuffle_dataset: false
+sys_prompt_name: "tabc"
+temperature: 0.7
+use_vllm: true
+vllm_device: auto
+vllm_gpu_memory_utilization: 0.4
+warmup_ratio: 0.20

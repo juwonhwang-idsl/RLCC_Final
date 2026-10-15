@@ -1,0 +1,38 @@
+{
+  "note": "Local metrics.json, actually run. Compute-matched comparison: RLCR trained for extra epochs (fresh independent phases, see configs/rl/R08-epoch-compare/) vs RLCC curriculum restarted for a 2nd round (configs/rlcc/R08-epoch-compare/), at equal total RL compute per step on the x-axis (5000/10000/15000 example-exposures). RLCR-1epoch/RLCC-1round are the existing E02/E03 checkpoints, included here for reference.",
+  "RLCR-1epoch (E02)": {
+    "acc": 0.561,
+    "ece": 0.089,
+    "pce": 0.084,
+    "brier": 0.209,
+    "auroc": 0.744
+  },
+  "RLCR-2epoch": {
+    "acc": 0.574,
+    "ece": 0.047,
+    "pce": 0.037,
+    "brier": 0.177,
+    "auroc": 0.791
+  },
+  "RLCR-3epoch": {
+    "acc": 0.604,
+    "ece": 0.054,
+    "pce": 0.052,
+    "brier": 0.174,
+    "auroc": 0.788
+  },
+  "RLCC-1round (E03)": {
+    "acc": 0.587,
+    "ece": 0.046,
+    "pce": 0.035,
+    "brier": 0.186,
+    "auroc": 0.779
+  },
+  "RLCC-2round": {
+    "acc": 0.571,
+    "ece": 0.068,
+    "pce": 0.062,
+    "brier": 0.177,
+    "auroc": 0.805
+  }
+}

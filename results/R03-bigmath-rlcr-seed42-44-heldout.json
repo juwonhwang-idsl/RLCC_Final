@@ -1,0 +1,24 @@
+{
+  "note": "RLCR BigMath multi-seed arm of R03. Local metrics.json, actually run. seed43 is E02 (same checkpoint); seed42/44 are additional seeds (configs/rl/R03-3seed/). The Hotpot side of R03 already has its own seed43/44/45 entries elsewhere in this folder.",
+  "RLCR-seed43 heldout (E02, for reference)": {
+    "acc": 0.554,
+    "ece": 0.092,
+    "pce": 0.09,
+    "brier": 0.202,
+    "auroc": 0.761
+  },
+  "RLCR-seed42 heldout": {
+    "acc": 0.553,
+    "ece": 0.042,
+    "pce": 0.032,
+    "brier": 0.202,
+    "auroc": 0.737
+  },
+  "RLCR-seed44 heldout": {
+    "acc": 0.552,
+    "ece": 0.115,
+    "pce": 0.115,
+    "brier": 0.219,
+    "auroc": 0.738
+  }
+}

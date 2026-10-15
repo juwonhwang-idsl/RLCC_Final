@@ -28,7 +28,7 @@ configs/
   eval_configs/     Evaluation configs for every result in the paper
 results/           Main result numbers (accuracy/ECE/PCE/Brier/AUROC). No raw generations,
                    just the paper's table numbers. E/A/D/K entries are transcribed directly
-                   from the paper's tables; R01/R03/R04/R06/R07 are from local eval runs.
+                   from the paper's tables; R01/R03/R04/R06/R07/R08 are from local eval runs.
                    R05 (AdaRFT+RLCR) ran only on a separate A100 server and isn't included yet.
 ```
 
@@ -47,7 +47,7 @@ Configs are named after the paper result they produce:
 | `A01`-`A05` | RLCC-Ascending (RLCC-A) ablation, one per model (Table 5, Appendix E) |
 | `D01`-`D02` | Difficulty-signal ablation: solve-rate / answer-NLL vs. confidence (Table 6) |
 | `K01`-`K04` | Restart-count sweep, K in {1,2,4,5} (K=3 is E03) (Table 7) |
-| `R01`-`R07` | Experiments added during rebuttal (to be incorporated into the paper later) |
+| `R01`-`R08` | Experiments added during rebuttal (to be incorporated into the paper later) |
 
 ### Datasets
 
@@ -124,7 +124,7 @@ configs/
   eval_configs/     논문의 모든 결과에 대응하는 평가 config
 results/           주요 결과 수치 (accuracy/ECE/PCE/Brier/AUROC). 모델이 생성한 원문 텍스트는
                    포함하지 않고, 논문 표 숫자만 담았습니다. E/A/D/K 항목은 논문 Table에서 그대로
-                   옮겼고, R01/R03/R04/R06/R07은 실제로 실행된 로컬 결과입니다. R05(AdaRFT+RLCR)는
+                   옮겼고, R01/R03/R04/R06/R07/R08은 실제로 실행된 로컬 결과입니다. R05(AdaRFT+RLCR)는
                    A100 서버에서만 실행되어 아직 포함되지 않았습니다.
 ```
 
@@ -140,7 +140,7 @@ results/           주요 결과 수치 (accuracy/ECE/PCE/Brier/AUROC). 모델�
 | `A01`-`A05` | RLCC-Ascending (RLCC-A) ablation, 모델별 1개 (Table 5, Appendix E) |
 | `D01`-`D02` | Difficulty-signal ablation: solve-rate / answer-NLL vs. confidence (Table 6) |
 | `K01`-`K04` | Restart 횟수 스윕, K ∈ {1,2,4,5} (K=3는 E03) (Table 7) |
-| `R01`-`R07` | Rebuttal에서 추가된 실험 (추후 논문에 반영 예정) |
+| `R01`-`R08` | Rebuttal에서 추가된 실험 (추후 논문에 반영 예정) |
 
 ### 데이터셋
 

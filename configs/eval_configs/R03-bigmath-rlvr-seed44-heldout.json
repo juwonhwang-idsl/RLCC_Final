@@ -1,0 +1,20 @@
+[
+  {
+    "dataset_name": "mehuldamani/big-math-digits",
+    "hash_key": "problem",
+    "split": "test",
+    "store_name": "eval_outputs/RLVR-seed44-verbconf",
+    "gpu_memory_utilization": 0.6,
+    "log_path": "results/RLVR-seed44-verbconf-heldout"
+  },
+  {
+    "name": "RLVR-seed44-verbconf",
+    "model": "data/RLVR-qwen3-1.7B-bigmathdigits5000-ng32-seed44/checkpoint-5000",
+    "check_fn": "confidence_verifier",
+    "sys_prompt_name": "gen",
+    "vllm_task": [
+      "confidence_at_end",
+      "ans_at_end"
+    ]
+  }
+]

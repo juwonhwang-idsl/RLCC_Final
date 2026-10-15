@@ -1,0 +1,59 @@
+# Third phase of the compute-matched comparison (see RLCR-epoch2.yaml): RLCR trained for a
+# 3rd "epoch" of RL to match RLCC's 2-round curriculum (RLCC round2.yaml), so the comparison is
+# RLCR-3epoch vs RLCC-2round at equal total RL compute (15000 example-exposures each).
+# Fresh independent phase continuing from the epoch2 checkpoint, same recipe otherwise.
+
+# Model arguments
+model_name_or_path: data/RLCR-qwen3-1.7B-bigmathdigits5000-ng32-2epoch/checkpoint-5000
+run_name: "RLCR-qwen3-1.7B-bigmathdigits5000-ng32-3epoch"
+output_dir: data/RLCR-qwen3-1.7B-bigmathdigits5000-ng32-3epoch
+model_revision: main
+torch_dtype: bfloat16
+attn_implementation: flash_attention_2
+
+# Data training arguments
+dataset_name: mehuldamani/big-math-digits
+train_subset_size: 5000
+num_processes: 1
+
+# GRPO trainer config
+bf16: true
+beta: 0.0
+eval_strategy: "no"
+eval_on_start: false
+format_pattern: "tabc"
+gradient_accumulation_steps: 32
+gradient_checkpointing: true
+gradient_checkpointing_kwargs:
+  use_reentrant: false
+hub_strategy: "end"
+learning_rate: 5e-06
+log_level: info
+logging_steps: 1
+logging_strategy: steps
+lr_scheduler_type: linear
+mask_truncated_completions: false
+max_prompt_length: 768
+max_completion_length: 1024
+max_steps: -1
+num_generations: 32
+num_iterations: 1
+num_train_epochs: 1
+optim: adamw_bnb_8bit
+overwrite_output_dir: true
+per_device_train_batch_size: 1
+push_to_hub: false
+report_to: []
+reward_funcs: ["format","accuracy","brier","mean_confidence","confidence_one_or_zero"]
+reward_weights: [0.5,0.5,0.5,0.00001,0.00001]
+save_strategy: "steps"
+save_steps: 250
+save_total_limit: 1
+scale_rewards: false
+seed: 2043
+sys_prompt_name: "tabc"
+temperature: 0.7
+use_vllm: true
+vllm_device: auto
+vllm_gpu_memory_utilization: 0.3
+warmup_ratio: 0.20

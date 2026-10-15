@@ -1,0 +1,24 @@
+{
+  "note": "RLVR had no multi-seed arm in the original rebuttal round (R03 covered RLCR/RLCC only). Added seed42/44 here as a matched comparison, run with the same recipe as E01 (seed43). Confidence is elicited post-hoc (RLVR was not trained to output it), same protocol as E01's own heldout eval.",
+  "RLVR-seed43 heldout (E01, for reference)": {
+    "acc": 0.567,
+    "ece": 0.378,
+    "pce": 0.352,
+    "brier": 0.379,
+    "auroc": 0.583
+  },
+  "RLVR-seed42 heldout": {
+    "acc": 0.593,
+    "ece": 0.359,
+    "pce": 0.33,
+    "brier": 0.363,
+    "auroc": 0.58
+  },
+  "RLVR-seed44 heldout": {
+    "acc": 0.588,
+    "ece": 0.348,
+    "pce": 0.318,
+    "brier": 0.36,
+    "auroc": 0.578
+  }
+}
